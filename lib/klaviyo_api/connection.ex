@@ -29,10 +29,12 @@ defmodule KlaviyoAPI.Connection do
 
   - `base_url`: Overrides the base URL on a per-client basis.
   - `user_agent`: Overrides the User-Agent header.
+  - `api_key`: Overrides the API key.
   """
   @type options :: [
           {:base_url, String.t()},
           {:user_agent, String.t()},
+          {:api_key, String.t()},
         ]
 
   @doc "Forward requests to Tesla."
@@ -84,6 +86,12 @@ defmodule KlaviyoAPI.Connection do
         :base_url,
         Application.get_env(:klaviyo_api, :base_url, @default_base_url)
       )
+    api_key =
+      Keyword.get(
+        options,
+        :api_key,
+        Application.get_env(:klaviyo_api, :api_key, "")
+      )
 
     tesla_options = Application.get_env(:tesla, __MODULE__, [])
     middleware = Keyword.get(tesla_options, :middleware, [])
@@ -102,9 +110,11 @@ defmodule KlaviyoAPI.Connection do
 
 
 
+
     [
       {Tesla.Middleware.BaseUrl, base_url},
       {Tesla.Middleware.Headers, [{"user-agent", user_agent}]},
+      {Tesla.Middleware.Headers, [{"Authorization", "Klaviyo-API-Key " <> api_key}]},
       {Tesla.Middleware.EncodeJson, engine: json_engine}
       | middleware
     ]

@@ -8,6 +8,7 @@
 import Config
 
 config :klaviyo_api, base_url: "https://a.klaviyo.com"
+config :klaviyo_api, api_key: ""
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

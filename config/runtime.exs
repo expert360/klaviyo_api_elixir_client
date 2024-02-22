@@ -10,3 +10,7 @@ import Config
 if base_url = System.get_env("KLAVIYO_API_BASE_URI") do
   config :klaviyo_api, base_url: base_url
 end
+
+if api_key = System.get_env("KLAVIYO_API_KEY") do
+  config :klaviyo_api, api_key: api_key
+end
