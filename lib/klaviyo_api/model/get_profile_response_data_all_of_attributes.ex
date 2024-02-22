@@ -9,12 +9,14 @@ defmodule KlaviyoAPI.Model.GetProfileResponseDataAllOfAttributes do
   @derive Jason.Encoder
   defstruct [
     :subscriptions,
-    :predictive_analytics
+    :predictive_analytics,
+    :properties
   ]
 
   @type t :: %__MODULE__{
     :subscriptions => KlaviyoAPI.Model.Subscriptions.t | nil,
-    :predictive_analytics => KlaviyoAPI.Model.PredictiveAnalytics.t | nil
+    :predictive_analytics => KlaviyoAPI.Model.PredictiveAnalytics.t | nil,
+    :properties => map()
   }
 
   alias KlaviyoAPI.Deserializer

@@ -27,7 +27,6 @@ defmodule KlaviyoAPI.Model.GetProfileResponseCompoundDocumentData do
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:type, :struct, KlaviyoAPI.Model.ProfileEnum)
      |> Deserializer.deserialize(:attributes, :struct, KlaviyoAPI.Model.GetProfileResponseDataAllOfAttributes)
      |> Deserializer.deserialize(:links, :struct, KlaviyoAPI.Model.ObjectLinks)
      |> Deserializer.deserialize(:relationships, :struct, KlaviyoAPI.Model.GetProfileResponseCompoundDocumentDataAllOfRelationships)
