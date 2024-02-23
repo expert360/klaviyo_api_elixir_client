@@ -23,7 +23,6 @@ defmodule KlaviyoAPI.Model.SubscriptionDeleteJobCreateQueryResourceObject do
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:type, :struct, KlaviyoAPI.Model.ProfileSubscriptionBulkDeleteJobEnum)
      |> Deserializer.deserialize(:attributes, :struct, KlaviyoAPI.Model.SubscriptionDeleteJobCreateQueryResourceObjectAttributes)
      |> Deserializer.deserialize(:relationships, :struct, KlaviyoAPI.Model.SubscriptionDeleteJobCreateQueryResourceObjectRelationships)
   end

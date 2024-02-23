@@ -25,7 +25,6 @@ defmodule KlaviyoAPI.Model.ProfileUpsertQueryResourceObject do
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:type, :struct, KlaviyoAPI.Model.ProfileEnum)
      |> Deserializer.deserialize(:attributes, :struct, KlaviyoAPI.Model.ProfileUpsertQueryResourceObjectAttributes)
      |> Deserializer.deserialize(:meta, :struct, KlaviyoAPI.Model.ProfileMeta)
   end

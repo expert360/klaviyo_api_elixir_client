@@ -25,20 +25,16 @@ defmodule KlaviyoAPI.Model.ProfileLocation do
     :address2 => String.t | nil,
     :city => String.t | nil,
     :country => String.t | nil,
-    :latitude => KlaviyoAPI.Model.ProfileLocationLatitude.t | nil,
-    :longitude => KlaviyoAPI.Model.ProfileLocationLongitude.t | nil,
+    :latitude => Decimal.t | nil,
+    :longitude => Decimal.t | nil,
     :region => String.t | nil,
     :zip => String.t | nil,
     :timezone => String.t | nil,
     :ip => String.t | nil
   }
 
-  alias KlaviyoAPI.Deserializer
-
   def decode(value) do
     value
-     |> Deserializer.deserialize(:latitude, :struct, KlaviyoAPI.Model.ProfileLocationLatitude)
-     |> Deserializer.deserialize(:longitude, :struct, KlaviyoAPI.Model.ProfileLocationLongitude)
   end
 end
 

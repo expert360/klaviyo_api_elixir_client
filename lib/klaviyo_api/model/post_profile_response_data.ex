@@ -16,7 +16,7 @@ defmodule KlaviyoAPI.Model.PostProfileResponseData do
   ]
 
   @type t :: %__MODULE__{
-    :type => KlaviyoAPI.Model.ProfileEnum.t,
+    :type => String.t,
     :id => String.t | nil,
     :attributes => KlaviyoAPI.Model.PostProfileResponseDataAttributes.t,
     :relationships => KlaviyoAPI.Model.GetProfileResponseCompoundDocumentDataAllOfRelationships.t | nil,
@@ -27,7 +27,6 @@ defmodule KlaviyoAPI.Model.PostProfileResponseData do
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:type, :struct, KlaviyoAPI.Model.ProfileEnum)
      |> Deserializer.deserialize(:attributes, :struct, KlaviyoAPI.Model.PostProfileResponseDataAttributes)
      |> Deserializer.deserialize(:relationships, :struct, KlaviyoAPI.Model.GetProfileResponseCompoundDocumentDataAllOfRelationships)
      |> Deserializer.deserialize(:links, :struct, KlaviyoAPI.Model.ObjectLinks)
