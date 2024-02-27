@@ -10,13 +10,21 @@ defmodule KlaviyoAPI.Model.GetProfileResponseDataAllOfAttributes do
   defstruct [
     :subscriptions,
     :predictive_analytics,
-    :properties
+    :properties,
+    :email,
+    :first_name,
+    :last_name,
+    :title
   ]
 
   @type t :: %__MODULE__{
     :subscriptions => KlaviyoAPI.Model.Subscriptions.t | nil,
     :predictive_analytics => KlaviyoAPI.Model.PredictiveAnalytics.t | nil,
-    :properties => map()
+    :properties => map(),
+    :email => String.t | nil,
+    :first_name => String.t | nil,
+    :last_name => String.t | nil,
+    :title => String.t | nil,
   }
 
   alias KlaviyoAPI.Deserializer
